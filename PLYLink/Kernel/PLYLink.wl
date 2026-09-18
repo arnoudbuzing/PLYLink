@@ -6,10 +6,12 @@ PLYToMeshRegion::usage = "PLYToMeshRegion[data] converts the imported PLY Associ
 
 Begin["`Private`"]
 
+PLYLink::nolib = "Failed to find the LibraryLink backend (libplylink). Please ensure the paclet is built.";
+
 $LibraryFile = FindLibrary["libplylink"];
 
 If[$LibraryFile === $Failed,
-  Print["Failed to find libplylink."];
+  Message[PLYLink::nolib];
 ];
 
 importPLYInternal = LibraryFunctionLoad[$LibraryFile, "import_ply", LinkObject, LinkObject];

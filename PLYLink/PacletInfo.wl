@@ -1,7 +1,9 @@
+(* ::Package:: *)
+
 PacletObject[
   <|
     "Name" -> "ArnoudBuzing/PLYLink",
-    "Description" -> "PLYLink is a high-performance Wolfram Language paclet designed for seamless importing and exporting of 3D polygonal meshes using the Polygon File Format (PLY). Powered by a compiled Rust LibraryLink backend, it supports fast, native memory exchange for ASCII and Binary encodings.",
+    "Description" -> "Import and export PLY files",
     "Creator" -> "Arnoud Buzing",
     "License" -> "MIT",
     "PublisherID" -> "ArnoudBuzing",
@@ -20,12 +22,18 @@ PacletObject[
         }
       },
       {"LibraryLink"},
-      {"Asset", "Assets" -> {
-        {"cube.ply", "Assets/cube.ply"},
-        {"airplane.ply", "Assets/airplane.ply"},
-        {"icosahedron.ply", "Assets/icosahedron.ply"},
-        {"439721.ply", "Assets/439721.ply"}
-      }},
+      {
+        "Asset",
+        "Assets" -> {
+          {"cube.ply", "Assets/cube.ply"},
+          {"airplane.ply", "Assets/airplane.ply"},
+          {
+            "icosahedron.ply",
+            "Assets/icosahedron.ply"
+          },
+          {"439721.ply", "Assets/439721.ply"}
+        }
+      },
       {"Documentation", "Language" -> "English"}
     }
   |>
