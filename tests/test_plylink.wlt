@@ -3,7 +3,7 @@ PacletDirectoryLoad[FileNameJoin[{DirectoryName[$TestFileName], "..", "PLYLink"}
 Needs["ArnoudBuzing`PLYLink`"];
 
 (* Basic cube test *)
-cubeFile = FileNameJoin[{DirectoryName[$TestFileName], "samples", "cube.ply"}];
+cubeFile = PacletObject["ArnoudBuzing/PLYLink"]["AssetLocation", "cube.ply"];
 cubeData = ImportPLY[cubeFile];
 
 VerificationTest[
@@ -45,7 +45,7 @@ VerificationTest[
 ]
 
 (* Airplane test *)
-airplaneFile = FileNameJoin[{DirectoryName[$TestFileName], "samples", "airplane.ply"}];
+airplaneFile = PacletObject["ArnoudBuzing/PLYLink"]["AssetLocation", "airplane.ply"];
 airplaneData = ImportPLY[airplaneFile];
 
 VerificationTest[
@@ -55,7 +55,7 @@ VerificationTest[
 ]
 
 (* Icosahedron test *)
-icosahedronFile = FileNameJoin[{DirectoryName[$TestFileName], "samples", "icosahedron.ply"}];
+icosahedronFile = PacletObject["ArnoudBuzing/PLYLink"]["AssetLocation", "icosahedron.ply"];
 icosahedronData = ImportPLY[icosahedronFile];
 
 VerificationTest[
@@ -71,7 +71,7 @@ VerificationTest[
 ]
 
 (* 439721 test *)
-hardFile = FileNameJoin[{DirectoryName[$TestFileName], "samples", "439721.ply"}];
+hardFile = PacletObject["ArnoudBuzing/PLYLink"]["AssetLocation", "heart.ply"];
 hardData = ImportPLY[hardFile];
 
 VerificationTest[

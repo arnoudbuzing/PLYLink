@@ -32,7 +32,8 @@ PacletObject[
             "Assets/icosahedron.ply"
           },
           {"heart.ply", "Assets/heart.ply"},
-          {"dragon.ply", "Assets/dragon.ply"}
+          {"dragon.ply", "Assets/dragon.ply"},
+          {"bunny.ply", "Assets/bunny.ply"}
         }
       },
       {"Documentation", "Language" -> "English"}
