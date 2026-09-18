@@ -20,6 +20,9 @@ Options[ExportPLY] = {"Encoding" -> "ASCII"};
 ExportPLY[file_String, data_Association, OptionsPattern[]] := 
   exportPLYInternal[file, data["VertexCoordinates"], data["Polygons"], OptionValue["Encoding"]]
 
+ExportPLY[file_String, mesh_MeshRegion, opts:OptionsPattern[]] := 
+  ExportPLY[file, <|"VertexCoordinates" -> MeshCoordinates[mesh], "Polygons" -> MeshCells[mesh, 2][[All, 1]]|>, opts]
+
 PLYToMeshRegion[data_Association] := MeshRegion[data["VertexCoordinates"], Polygon[data["Polygons"]]]
 
 End[]

@@ -1,0 +1,10 @@
+PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName], "PLYLink"}]];
+Needs["ArnoudBuzing`PLYLink`"];
+file = PacletObject["ArnoudBuzing/PLYLink"]["AssetLocation", "cube.ply"];
+data = ImportPLY[file];
+mesh = PLYToMeshRegion[data];
+coords = MeshCoordinates[mesh];
+cells = MeshCells[mesh, 2];
+Print["First coord: ", coords[[1]]];
+Print["First cell: ", cells[[1]]];
+Print["Extracted cells: ", cells[[1;;2, 1]]];

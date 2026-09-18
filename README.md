@@ -1,6 +1,6 @@
 # PLYLink
 
-PLYLink is a Wolfram Language paclet that provides high-performance import and export of [PLY (Polygon File Format)](https://en.wikipedia.org/wiki/PLY_(file_format)) files using a Rust LibraryLink extension (`ply-rs`).
+PLYLink is a high-performance Wolfram Language paclet designed for seamless importing and exporting of 3D polygonal meshes using the Polygon File Format (PLY). By leveraging a compiled Rust LibraryLink backend (via the `ply-rs-bw` and `wolfram-library-link` crates), PLYLink bypasses slower top-level parsing to deliver fast, native memory exchange between Rust and the Wolfram kernel. It robustly supports both ASCII and Binary (Little/Big Endian) encodings, automatically converting PLY vertex and face properties into native Wolfram Language Associations. Furthermore, it provides a built-in `PLYToMeshRegion` utility that instantly transforms imported geometric data into native `MeshRegion` objects, enabling immediate downstream computational geometry analysis, processing, and rendering within Mathematica and the Wolfram Language.
 
 ## Installation
 
@@ -41,7 +41,7 @@ mesh = PLYToMeshRegion[data];
 
 ### ExportPLY
 
-Writes vertex coordinates and polygons to a PLY file.
+Writes vertex coordinates and polygons to a PLY file. It accepts either the Association format returned by `ImportPLY` or a native `MeshRegion`.
 
 ```wolfram
 data = <|
@@ -49,8 +49,12 @@ data = <|
   "Polygons" -> {{1, 2, 3}, {1, 3, 4}}
 |>;
 
-(* Export as ASCII (default) *)
+(* Export Association as ASCII (default) *)
 ExportPLY["path/to/output.ply", data];
+
+(* Export MeshRegion directly *)
+mesh = PLYToMeshRegion[data];
+ExportPLY["path/to/output_mesh.ply", mesh];
 
 (* Export as Binary (Little Endian) *)
 ExportPLY["path/to/output_binary.ply", data, "Encoding" -> "Binary"];

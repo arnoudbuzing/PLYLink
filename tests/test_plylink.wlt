@@ -96,6 +96,25 @@ VerificationTest[
   TestID -> "ExportPLY-returns-true"
 ]
 
+(* Export MeshRegion test *)
+tempMeshFile = FileNameJoin[{DirectoryName[$TestFileName], "temp_export_mesh.ply"}];
+exportMeshRes = ExportPLY[tempMeshFile, cubeMesh];
+
+VerificationTest[
+  exportMeshRes,
+  True,
+  TestID -> "ExportPLY-MeshRegion-returns-true"
+]
+
+reimportMesh = ImportPLY[tempMeshFile];
+VerificationTest[
+  reimportMesh,
+  cubeData,
+  TestID -> "ExportPLY-MeshRegion-roundtrip-matches-original"
+]
+
+If[FileExistsQ[tempMeshFile], DeleteFile[tempMeshFile]];
+
 VerificationTest[
   FileExistsQ[tempFile],
   True,
