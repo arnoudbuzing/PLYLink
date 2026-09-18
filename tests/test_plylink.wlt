@@ -19,7 +19,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  Length[cubeData["Polygons"]],
+  Total[Length /@ cubeData["Polygons"]],
   6,
   TestID -> "ImportPLY-cube-polygons"
 ]
@@ -65,7 +65,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  Length[icosahedronData["Polygons"]],
+  Total[Length /@ icosahedronData["Polygons"]],
   20,
   TestID -> "ImportPLY-icosahedron-polygons"
 ]
@@ -81,7 +81,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-  Length[hardData["Polygons"]],
+  Total[Length /@ hardData["Polygons"]],
   30298,
   TestID -> "ImportPLY-439721-polygons"
 ]

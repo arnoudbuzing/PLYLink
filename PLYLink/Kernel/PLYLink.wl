@@ -14,18 +14,37 @@ If[$LibraryFile === $Failed,
   Message[PLYLink::nolib];
 ];
 
-importPLYInternal = LibraryFunctionLoad[$LibraryFile, "import_ply", LinkObject, LinkObject];
-exportPLYInternal = LibraryFunctionLoad[$LibraryFile, "export_ply", LinkObject, LinkObject];
+importPLYInternal = LibraryFunctionLoad[$LibraryFile, "import_ply", {"UTF8String"}, "DataStore"];
+exportPLYInternal = LibraryFunctionLoad[$LibraryFile, "export_ply", {"UTF8String", "NumericArray", "DataStore", "UTF8String"}, Boolean];
 
-ImportPLY[file_String] := importPLYInternal[file]
+ImportPLY[file_String] := Module[{res, assoc, polys},
+  res = importPLYInternal[file];
+  If[Head[res] === Developer`DataStore,
+    assoc = Association[List @@ res];
+    polys = assoc["Polygons"];
+    If[Head[polys] === Developer`DataStore,
+      assoc["Polygons"] = List @@ polys
+    ];
+    assoc,
+    res
+  ]
+]
 Options[ExportPLY] = {"Encoding" -> "ASCII"};
 ExportPLY[file_String, data_Association, OptionsPattern[]] := 
-  exportPLYInternal[file, data["VertexCoordinates"], data["Polygons"], OptionValue["Encoding"]]
+  Module[{polys, numPolys},
+    polys = data["Polygons"];
+    If[!ListQ[polys], polys = {polys}];
+    If[MatchQ[polys, {__NumericArray}],
+      numPolys = polys;,
+      numPolys = NumericArray[#, "Integer64"] & /@ GatherBy[polys, Length];
+    ];
+    exportPLYInternal[file, NumericArray[data["VertexCoordinates"], "Real64"], Developer`DataStore[Sequence @@ numPolys], OptionValue["Encoding"]]
+  ]
 
 ExportPLY[file_String, mesh_MeshRegion, opts:OptionsPattern[]] := 
   ExportPLY[file, <|"VertexCoordinates" -> MeshCoordinates[mesh], "Polygons" -> MeshCells[mesh, 2][[All, 1]]|>, opts]
 
-PLYToMeshRegion[data_Association] := MeshRegion[data["VertexCoordinates"], Polygon[data["Polygons"]]]
+PLYToMeshRegion[data_Association] := MeshRegion[Normal[data["VertexCoordinates"]], Polygon[Normal[#]] & /@ data["Polygons"]]
 
 End[]
 EndPackage[]
