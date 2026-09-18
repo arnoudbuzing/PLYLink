@@ -31,7 +31,7 @@ PacletObject[
             "icosahedron.ply",
             "Assets/icosahedron.ply"
           },
-          {"439721.ply", "Assets/439721.ply"},
+          {"heart.ply", "Assets/heart.ply"},
           {"dragon.ply", "Assets/dragon.ply"}
         }
       },
