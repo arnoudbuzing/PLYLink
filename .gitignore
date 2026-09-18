@@ -1,0 +1,11 @@
+# Rust build artifacts
+rust_link/target/
+
+# OS generated files
+.DS_Store
+
+# Paclet builds
+build/
+
+# Temporary test outputs
+tests/temp_export*.ply

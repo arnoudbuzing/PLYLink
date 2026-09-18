@@ -1,0 +1,13 @@
+[package]
+name = "rust_link"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "plylink"
+crate-type = ["cdylib"]
+
+[dependencies]
+ply-rs-bw = "4.0.1"
+wolfram-expr = "0.6.0"
+wolfram-library-link = { version = "0.6.1", features = ["wstp"] }

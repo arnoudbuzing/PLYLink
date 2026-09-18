@@ -1,0 +1,67 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      1576,         57]
+NotebookOptionsPosition[      1097,         40]
+NotebookOutlinePosition[      1495,         56]
+CellTagsIndexPosition[      1452,         53]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["PLYLink", "Title",
+ CellChangeTimes->{{3.9987484605648193`*^9, 
+  3.998748461589847*^9}}, \
+ExpressionUUID->"b8fc1426-0677-4624-93de-9eac0cad246f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "PacletDirectoryLoad", "[", "\"\</path/to/plylink/PLYLink\>\"", "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<ArnoudBuzing`PLYLink`\>\"", "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.9987484582950277`*^9, 
+  3.998748458295141*^9}}, \
+ExpressionUUID->"5f5dcc9b-374b-4bd4-8ea7-592a4e3983e8"]
+}, Open  ]]
+},
+WindowSize->{900, 850},
+WindowMargins->{{174, Automatic}, {16, Automatic}},
+FrontEndVersion->"15.1 for Mac OS X ARM (64-bit) (September 1, 2026)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1aa43bc6-f522-4ac3-a08f-dc7dfc26cb42"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 153, 3, 96, "Title", ExpressionUUID->"b8fc1426-0677-4624-93de-9eac0cad246f"],
+Cell[732, 27, 349, 10, 49, "Input", ExpressionUUID->"5f5dcc9b-374b-4bd4-8ea7-592a4e3983e8"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
