@@ -44,7 +44,7 @@ ExportPLY[file_String, data_Association, OptionsPattern[]] :=
 ExportPLY[file_String, mesh_MeshRegion, opts:OptionsPattern[]] := 
   ExportPLY[file, <|"VertexCoordinates" -> MeshCoordinates[mesh], "Polygons" -> MeshCells[mesh, 2][[All, 1]]|>, opts]
 
-PLYToMeshRegion[data_Association] := MeshRegion[Normal[data["VertexCoordinates"]], Polygon[Normal[#]] & /@ data["Polygons"]]
+PLYToMeshRegion[data_Association] := Quiet[MeshRegion[Normal[data["VertexCoordinates"]], Polygon[Normal[#]] & /@ data["Polygons"]], MeshRegion::dgcellr]
 
 End[]
 EndPackage[]
