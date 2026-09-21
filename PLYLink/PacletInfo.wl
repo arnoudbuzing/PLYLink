@@ -33,7 +33,8 @@ PacletObject[
           },
           {"heart.ply", "Assets/heart.ply"},
           {"dragon.ply", "Assets/dragon.ply"},
-          {"bunny.ply", "Assets/bunny.ply"}
+          {"bunny.ply", "Assets/bunny.ply"},
+          {"LICENSE.md", "LICENSE.md"}
         }
       },
       {"Documentation", "Language" -> "English"}
